@@ -9,144 +9,188 @@ using namespace std;
 namespace solver
 {
 
-// double solve(RealVariable) { return 0; };
-// std::complex<double> solve(ComplexVariable)
-// {
-//     std::complex<double> s = 0;
-//     return s;
-// };
+//-----------shared-------------//
+double solve(const RealVariable &r1) { return 0; };
 
-// //operator '*'
-// const RealVariable RealVariable::operator*(double x) const
-// {
-//     return RealVariable();
-// };
-// const RealVariable &operator*(RealVariable &real1, RealVariable &real2)
-// {
-//     return real1;
-// };
-// const RealVariable &operator*(double x, RealVariable &real1)
-// {
-//     return real1;
-// };
-
-// //operator '=='
-// const RealVariable RealVariable::operator==(double x) const
-// {
-//     return RealVariable();
-// };
-// const RealVariable &operator==(RealVariable &real1, RealVariable &real2)
-// {
-//     return real1;
-// };
-// const RealVariable &operator==(double x, RealVariable &real1)
-// {
-//     return real1;
-// };
-
-// //operator '^'
-// const RealVariable RealVariable::operator^(double x) const
-// {
-//     return RealVariable();
-// };
-// const RealVariable &operator^(RealVariable &real1, RealVariable &real2)
-// {
-//     return real1;
-// };
-// const RealVariable &operator^(double x, RealVariable &real1)
-// {
-//     return real1;
-// };
-
-// //operator '+'
-// const RealVariable RealVariable::operator+(double x) const
-// {
-//     return RealVariable();
-// };
-// const RealVariable &operator+(RealVariable &real1, RealVariable &real2)
-// {
-//     return real1;
-// };
-// const RealVariable &operator+(double x, RealVariable &real1)
-// {
-//     return real1;
-// };
-
-// //operator '-'
-// const RealVariable RealVariable::operator-(double x) const
-// {
-//     return RealVariable();
-// };
-// const RealVariable &operator-(RealVariable &real1, RealVariable &real2)
-// {
-//     return real1;
-// };
-// const RealVariable &operator-(double x, RealVariable &real1)
-// {
-//     return real1;
-// };
-
-double solve(const RealVariable& r1) {
-		return 4.0;
-	}
-	complex<double> solve(const ComplexVariable& c1) {
-		return 2i;
-	}
+std::complex<double> solve(const ComplexVariable& c1)
+{
+    std::complex<double> s = 0;
+    return s;
+};
 
 
+//--------------RealVariable------------//
+//operator '*'
+const RealVariable RealVariable::operator*(double x) const
+{
+    return RealVariable();
+};
+const RealVariable operator*(const RealVariable &real1, const RealVariable &real2)
+{
+    return real1;
+};
+const RealVariable operator*(double x, const RealVariable &real1)
+{
+    return real1;
+};
 
-	const RealVariable operator*(double other, const RealVariable& real) {//(         *          )
-		return RealVariable(4.4);
-	}
-	const RealVariable RealVariable::operator*(double other) const {
-		return RealVariable(4.4);
-	}
-	const RealVariable operator*(const RealVariable& real, const RealVariable& real2) {
-		return RealVariable(4.4);
-	}
+//operator '=='
+const RealVariable RealVariable::operator==(double x) const
+{
+    return RealVariable();
+};
+const RealVariable operator==(const RealVariable &real1, const RealVariable &real2)
+{
+    return real1;
+};
+const RealVariable operator==(double x, const RealVariable &real1)
+{
+    return real1;
+};
 
-	const RealVariable operator-(double other, const RealVariable& real) {// (         -          )
-		return RealVariable(4.4);
-	}
-	const RealVariable RealVariable::operator-(double other) const {
-		return RealVariable(4.4);
-	}
-	const RealVariable operator-(const RealVariable& real, const RealVariable& real2) {
-		return RealVariable(4.4);
-	}
+//operator '^'
+const RealVariable RealVariable::operator^(double x) const
+{
+    return RealVariable();
+};
+const RealVariable operator^(const RealVariable &real1, const RealVariable &real2)
+{
+    return real1;
+};
+const RealVariable operator^(double x, const RealVariable &real1)
+{
+    return real1;
+};
+
+//operator '+'
+const RealVariable RealVariable::operator+(double x) const
+{
+    return RealVariable();
+};
+const RealVariable operator+(const RealVariable &real1, const RealVariable &real2)
+{
+    return real1;
+};
+const RealVariable operator+(double x, const RealVariable &real1)
+{
+    return real1;
+};
+
+//operator '-'
+const RealVariable RealVariable::operator-(double x) const
+{
+    return RealVariable();
+};
+const RealVariable operator-(const RealVariable &real1, const RealVariable &real2)
+{
+    return real1;
+};
+const RealVariable operator-(double x, const RealVariable &real1)
+{
+    return real1;
+};
+
+//operator '/'
+const RealVariable RealVariable::operator/(double x) const
+{
+    return RealVariable();
+};
+const RealVariable operator/(const RealVariable &real1, const RealVariable &real2)
+{
+    return real1;
+};
+const RealVariable operator/(double x, const RealVariable &real1)
+{
+    return real1;
+};
 
 
-	const RealVariable operator+(double other, const RealVariable& real) {// (       +       )
-		return RealVariable(4.4);
-	}
-	const RealVariable RealVariable::operator+(double other) const {
-		return RealVariable(4.4);
-	}
-	const RealVariable operator+(const RealVariable& real, const RealVariable& real2) {
-		return RealVariable(4.4);
-	}
 
-	const RealVariable operator/(double other, const RealVariable& real) {// (      /      )
-		return RealVariable(4.4);
-	}
-	const RealVariable RealVariable::operator/(double other) const {
-		return RealVariable(4.4);
-	}
-	const RealVariable operator/(const RealVariable& real, const RealVariable& real2) {
-		return RealVariable(4.4);
-	}
+//------------Complex--------------//
+//operator '*'
+const ComplexVariable ComplexVariable::operator*(double x) const
+{
+    return ComplexVariable();
+};
+const ComplexVariable operator*(const ComplexVariable &real1, const ComplexVariable &real2)
+{
+    return real1;
+};
+const ComplexVariable operator*(double x, const ComplexVariable &real1)
+{
+    return real1;
+};
 
-	const RealVariable RealVariable::operator==(double other) const {// (         ==         )
-		return RealVariable(4.4);
-	}
-	const RealVariable RealVariable::operator==(const RealVariable& real) const {
-		return RealVariable(4.4);
-	}
-	const RealVariable operator==(double other, const RealVariable& real2) {
-		return RealVariable(4.4);
-	}
+//operator '=='
+const ComplexVariable ComplexVariable::operator==(double x) const
+{
+    return ComplexVariable();
+};
+const ComplexVariable operator==(const ComplexVariable &real1, const ComplexVariable &real2)
+{
+    return real1;
+};
+const ComplexVariable operator==(double x, const ComplexVariable &real1)
+{
+    return real1;
+};
 
-	const RealVariable RealVariable::operator^(double other) const { //  (             ^             )
-		return RealVariable(4.4);
-	}
+//operator '^'
+const ComplexVariable ComplexVariable::operator^(double x) const
+{
+    return ComplexVariable();
+};
+const ComplexVariable operator^(const ComplexVariable &real1, const ComplexVariable &real2)
+{
+    return real1;
+};
+const ComplexVariable operator^(double x, const ComplexVariable &real1)
+{
+    return real1;
+};
+
+//operator '+'
+const ComplexVariable ComplexVariable::operator+(double x) const
+{
+    return ComplexVariable();
+};
+const ComplexVariable operator+(const ComplexVariable &real1, const ComplexVariable &real2)
+{
+    return real1;
+};
+const ComplexVariable operator+(double x, const ComplexVariable &real1)
+{
+    return real1;
+};
+
+//operator '-'
+const ComplexVariable ComplexVariable::operator-(double x) const
+{
+    return ComplexVariable();
+};
+const ComplexVariable operator-(const ComplexVariable &real1, const ComplexVariable &real2)
+{
+    return real1;
+};
+const ComplexVariable operator-(double x, const ComplexVariable &real1)
+{
+    return real1;
+};
+
+//operator '/'
+const ComplexVariable ComplexVariable::operator/(double x) const
+{
+    return ComplexVariable();
+};
+const ComplexVariable operator/(const ComplexVariable &real1, const ComplexVariable &real2)
+{
+    return real1;
+};
+const ComplexVariable operator/(double x, const ComplexVariable &real1)
+{
+    return real1;
+};
+
+
+
 }; // namespace solver
