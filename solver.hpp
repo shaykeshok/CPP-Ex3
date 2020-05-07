@@ -9,113 +9,64 @@ namespace solver
 
 class RealVariable
 {
-private:
-    double a;
-    // double b;
-    // double c;
-
 public:
-    RealVariable() = default; //{} //default constructor
-                              // RealVariable(double a,double b,double c)
-                              // {
-                              //     this->a = a;
-                              //     this->b = b;
-                              //     this->c = c;
-                              // }
-    RealVariable(double a)
-    {
-        this->a = a;
-    }
-    // ~RealVariable()
-    // {
-    //     delete (this);
-    // }
+    double coef_2; //x^2
+    double coef_1; //x^1
+    double coef_0; //x^0
+    int x;
 
+
+    //constructors:
+    RealVariable(): coef_2(0), coef_1(1), coef_0(0) {}; //default constructor                          
+    RealVariable(double c2, double c1, double c0): coef_2(c2), coef_1(c1), coef_0(c0) {}
+    double getA(){
+        return coef_2;
+    }
+     double getB(){
+        return coef_1;
+    }
+     double getC(){
+        return coef_0;
+    }
     //overloads operators:
 
     //operator '*'
-    const RealVariable operator*(double x) const;
-    friend const RealVariable operator*(double x, const RealVariable &real);
-    friend const RealVariable operator*(const RealVariable &real1, const RealVariable &real2);
+    // const RealVariable operator*(double x) const;
+    friend RealVariable &operator*(double x, RealVariable &real);
+    // friend RealVariable &operator*(RealVariable &real1, RealVariable &real2)
+    // friend const RealVariable operator*(const RealVariable &real1, const RealVariable &real2);
 
     //operator '=='
-    const RealVariable operator==(double x) const;
-    friend const RealVariable operator==(double x, const RealVariable &real);
-    friend const RealVariable operator==(const RealVariable &real1, const RealVariable &real2);
+    // const RealVariable operator==(double x) const;
+    friend RealVariable &operator==(RealVariable &real, double x);
+    friend RealVariable &operator==(RealVariable &real1, RealVariable &real2);
+    // friend const RealVariable operator==(const RealVariable &real1, const RealVariable &real2);
 
-    //operator '^'
-    const RealVariable operator^(double x) const;
-    friend const RealVariable operator^(double x, const RealVariable &real);
-    friend const RealVariable operator^(const RealVariable &real1, const RealVariable &real2);
-
-    //operator '-'
-    const RealVariable operator-(double x) const;
-    friend const RealVariable operator-(double x, const RealVariable &real);
-    friend const RealVariable operator-(const RealVariable &real1, const RealVariable &real2);
-
-    //operator '+'
-    const RealVariable operator+(double x) const;
-    friend const RealVariable operator+(double x, const RealVariable &real);
-    friend const RealVariable operator+(const RealVariable &real1, const RealVariable &real2);
-
-    //operator '/'
-    const RealVariable operator/(double x) const;
-    friend const RealVariable operator/(double x, const RealVariable &real);
-    friend const RealVariable operator/(const RealVariable &real1, const RealVariable &real2);
-};
-
-class ComplexVariable
-{
-
-private:
-    complex<double> num;
-
-public:
-    ComplexVariable() = default; //default constructor
-
-    ComplexVariable(complex<double> x)
-    {
-        this->num = x;
-    }
-    // ~RealVariable()
-    // {
-    //     delete (this);
-    // }
-
-    //overloads operators:
-
-    //operator '*'
-    const ComplexVariable operator*(double x) const;
-    friend const ComplexVariable operator*(double x, const ComplexVariable &real);
-    friend const ComplexVariable operator*(const ComplexVariable &real1, const ComplexVariable &real2);
-
-    //operator '=='
-    const ComplexVariable operator==(double x) const;
-    friend const ComplexVariable operator==(double x, const ComplexVariable &real);
-    friend const ComplexVariable operator==(const ComplexVariable &real1, const ComplexVariable &real2);
-
-    //operator '^'
-    const ComplexVariable operator^(double x) const;
-    friend const ComplexVariable operator^(double x, const ComplexVariable &real);
-    friend const ComplexVariable operator^(const ComplexVariable &real1, const ComplexVariable &real2);
+        //operator '^'
+    // const RealVariable operator^(double x) const;
+    friend RealVariable &operator^(double x, RealVariable &real);
+    friend RealVariable &operator^(RealVariable &real1, double x);
+    // friend const RealVariable operator^(const RealVariable &real1, const RealVariable &real2);
 
     //operator '-'
-    const ComplexVariable operator-(double x) const;
-    friend const ComplexVariable operator-(double x, const ComplexVariable &real);
-    friend const ComplexVariable operator-(const ComplexVariable &real1, const ComplexVariable &real2);
+    // const RealVariable operator-(double x) const;
+    friend RealVariable &operator-(RealVariable &real, double x);
+    friend RealVariable &operator-(RealVariable &real1, RealVariable &real2);
+
 
     //operator '+'
-    const ComplexVariable operator+(double x) const;
-    friend const ComplexVariable operator+(double x, const ComplexVariable &real);
-    friend const ComplexVariable operator+(const ComplexVariable &real1, const ComplexVariable &real2);
+    // const RealVariable operator+(double x) const;
+    friend RealVariable &operator+(RealVariable &real1,double x);
+    friend RealVariable &operator+(double x, RealVariable &real);
+    friend RealVariable &operator+(RealVariable &real1, RealVariable &real2);
 
     //operator '/'
-    const ComplexVariable operator/(double x) const;
-    friend const ComplexVariable operator/(double x, const ComplexVariable &real);
-    friend const ComplexVariable operator/(const ComplexVariable &real1, const ComplexVariable &real2);
+    // const RealVariable operator/(double x) const;
+    friend RealVariable &operator/(RealVariable &real, double x);
+    // friend const RealVariable operator/(const RealVariable &real1, const RealVariable &real2);
+    void toString();
+    void copy(RealVariable &r1);
 };
-
-double solve(const RealVariable &r1);
-std::complex<double> solve(const ComplexVariable &c1);
+double solve(RealVariable &r1);
 
 }; // namespace solver
