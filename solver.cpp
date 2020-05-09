@@ -132,6 +132,7 @@ RealVariable &operator*(double x, RealVariable &real1)
 
 RealVariable &operator/(RealVariable &real1, double x)
 {
+    if(x==0) throw runtime_error("ERROR: divise in zero is invalid");
 
     RealVariable *temp = new RealVariable();
     temp->copy(real1);
@@ -325,6 +326,16 @@ ComplexVariable &operator+(ComplexVariable &x, complex<double> comp)
     temp->comp += comp;
     return *temp;
 }
+ComplexVariable &operator+(ComplexVariable &x, int num)
+{
+    double d = num * 1.0;
+    return x + d;
+}
+ComplexVariable &operator+(int num, ComplexVariable &x)
+{
+    double d = num * 1.0;
+    return x + d;
+}
 ComplexVariable &operator==(ComplexVariable &comp, double x)
 {
     //comp.toString("operator==");
@@ -344,7 +355,7 @@ ComplexVariable &operator==(ComplexVariable &x, ComplexVariable &y)
 }
 ComplexVariable &operator^(ComplexVariable &complex, double x)
 {
-    if (x > 2)
+    if (x != 2)
     {
         throw runtime_error("ERROR: Not Second-degree equation");
     }

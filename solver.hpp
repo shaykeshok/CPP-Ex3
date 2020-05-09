@@ -85,6 +85,9 @@ public:
     //operator '+'
     friend ComplexVariable &operator+(ComplexVariable &x, double num);
     friend ComplexVariable &operator+(double num, ComplexVariable &x);
+    friend ComplexVariable &operator+(ComplexVariable &x, int num);
+    friend ComplexVariable &operator+(int num, ComplexVariable &x);
+
     friend ComplexVariable &operator+(ComplexVariable &x, ComplexVariable &y);
     friend ComplexVariable &operator+(ComplexVariable &x, complex<double> comp);
     // friend ComplexVariable &operator+(complex<double> comp, ComplexVariable &x);
